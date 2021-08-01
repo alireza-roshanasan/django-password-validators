@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-01 15:43+0430\n"
+"POT-Creation-Date: 2021-08-01 16:37+0430\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -105,7 +105,7 @@ msgstr[1] "%(min_length_special)s کاراکتر خاص"
 
 #: password_character_requirements/password_validation.py:133
 msgid "This password must contain at least"
-msgstr "این رمز عبور باید حداقل حاوی باشد"
+msgstr "این رمز عبور باید شامل"
 
 #: password_history/models.py:17
 msgid "When created salt"
