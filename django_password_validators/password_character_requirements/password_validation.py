@@ -11,6 +11,7 @@ class PasswordCharacterValidator():
             min_length_special=1,
             min_length_lower=1,
             min_length_upper=1,
+            max_similar_char=2,
             special_characters="~!@#$%^&*()_+{}\":;'[]"
     ):
         self.min_length_digit = min_length_digit
@@ -19,6 +20,7 @@ class PasswordCharacterValidator():
         self.min_length_lower = min_length_lower
         self.min_length_upper = min_length_upper
         self.special_characters = special_characters
+        self.max_similar_char = max_similar_char
 
     def validate(self, password, user=None):
         validation_errors = []
@@ -71,6 +73,17 @@ class PasswordCharacterValidator():
                 ),
                 params={'min_length': self.min_length_special},
                 code='min_length_special_characters',
+            ))
+
+        if len(password) - len(set(password)) >= self.max_similar_char:
+            validation_errors.append(ValidationError(
+                ungettext(
+                    'No more than  %(min_length)d duplicate characters should be used in the password.',
+                    'No more than  %(min_length)d duplicate characters should be used in the password.',
+                    self.max_similar_char
+                ),
+                params={'min_length': self.max_similar_char},
+                code='max_similar_char_characters',
             ))
         if validation_errors:
             raise ValidationError(validation_errors)
